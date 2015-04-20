@@ -4,7 +4,7 @@
 #
 #  vim:ts=2:sw=2:et
 #
-FROM quay.io/gambol99/base-service:latest
+FROM shayashibara/docker-consul-template-haproxy:latest
 MAINTAINER Rohith Jayawardene <gambol99@gmail.com>
 
-RUN yum install -y haproxy
+ADD haproxy.template /etc/haproxy/haproxy.template
