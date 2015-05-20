@@ -19,7 +19,7 @@ RUN yum install -y curl unzip tar
 #  chmod +x /opt/consul-template/bin/consul-template && \
 #  chown root: -R /opt/consul-template
 
-RUN mkdir -p /opt/confd/bin && \
+RUN mkdir -p /opt/confd/bin /etc/confd/templates && \
   curl -sLk https://github.com/kelseyhightower/confd/releases/download/v0.9.0/confd-0.9.0-linux-amd64 > /opt/confd/bin/confd && \
   ln -s /opt/confd/bin/confd /bin/confd && \
   chmod +x /opt/confd/bin/confd
