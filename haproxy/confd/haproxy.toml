@@ -1,0 +1,18 @@
+#
+#   Author: Rohith
+#   Date: 2015-05-20 10:34:29 +0100 (Wed, 20 May 2015)
+#
+#  vim:ts=2:sw=2:et
+#
+
+[template]
+src   = "haproxy.cfg.tmpl"
+dest  = "/etc/haproxy/haproxy.cfg.latest"
+owner = "root"
+group = "root"
+mode  = "0444"
+keys  = [
+  "/services",
+  "/frontends"
+]
+reload_cmd = "/bin/haproxy_restart.sh"
