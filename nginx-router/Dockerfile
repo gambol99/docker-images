@@ -7,6 +7,7 @@
 FROM gambol99/supervisord
 MAINTAINER Rohith <gambol99@gmail.com>
 
+ADD config/nginx.conf /etc/nginx/nginx.conf
 ADD config/start.sh /bin/start.sh
 ADD config/confd.sh /bin/confd.sh
 
