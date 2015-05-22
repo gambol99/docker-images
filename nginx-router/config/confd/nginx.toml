@@ -1,0 +1,16 @@
+#
+#   Author: Rohith
+#   Date: 2015-05-22 10:13:46 +0100 (Fri, 22 May 2015)
+#
+#  vim:ts=2:sw=2:et
+#
+
+[template]
+src   = "nginx.conf.tmpl"
+dest  = "/etc/nginx/nginx.conf"
+keys  = [ "/registry/services/specs/" ]
+owner = "root"
+mode  = "0444"
+
+check_cmd  = "/usr/sbin/nginx -t -c {{.src}}"
+reload_cmd = "supervisorctl restart nginx"
