@@ -21,4 +21,4 @@ ADD config/supervisord/nginx.ini /etc/supervisord.d/nginx.ini
 
 EXPOSE 80 443
 
-ENTRYPOINT [ "/start.sh" ]
+ENTRYPOINT [ "/bin/start.sh" ]
