@@ -13,7 +13,7 @@ RUN gem install -V vcloud-tools -v 1.0.0
 ADD ./start.sh /start.sh
 ADD config/vcloud-core/vm.rb /usr/local/share/gems/gems/vcloud-core-1.0.2/lib/vcloud/core/vm.rb
 ADD config/vcloud-launcher/vm.rb /usr/local/share/gems/gems/vcloud-launcher-1.0.0/lib/vcloud/launcher/schema/vm.rb
-ADD config/vcloud-launcher/vm_orchestrator.rb /usr/local/share/gems/gems/vcloud-launcher-1.0.0/lib/vcloud/launcher/schema/vm_orchestrator.rb
+#ADD config/vcloud-launcher/vm_orchestrator.rb /usr/local/share/gems/gems/vcloud-launcher-1.0.0/lib/vcloud/launcher/schema/vm_orchestrator.rb
 
 RUN chmod +x /start.sh
 
