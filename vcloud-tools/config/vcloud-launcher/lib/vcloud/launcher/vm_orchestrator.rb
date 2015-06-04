@@ -15,15 +15,16 @@ module Vcloud
           @vm.update_cpu_count(vm_config[:hardware_config][:cpu])
           @vm.update_memory_size_in_mb(vm_config[:hardware_config][:memory])
         end
+        @vm.insert_cdrom(vm_config[:cdrom])
         @vm.add_extra_disks(vm_config[:extra_disks])
         @vm.update_metadata(vm_config[:metadata])
         if vm_config.key?(:independent_disks)
           Vcloud::Launcher::IndependentDiskOrchestrator.new(@vm).attach(vm_config.fetch(:independent_disks))
         end
 
-        preamble = vm_config[:bootstrap]
+        preamble = vm_config[:bootstrap] ? generate_preamble(vm_config) : ''
 
-        @vm.configure_guest_customization_section(preamble) if !preamble.nil? and !ppreamble.empty?
+        @vm.configure_guest_customization_section(preamble) if !preamble.nil? and !preamble.empty?
       end
 
       private
