@@ -11,7 +11,7 @@ MAINTAINER Rohith <gambol99@gmail.com>
 RUN apk-install bash openssh supervisor python
 RUN mkdir -p /etc/supervisor.d/ 
 
-ADD config/sshd.ini /etc/supervisord.d/sshd.ini
+ADD config/sshd.ini /etc/supervisor.d/sshd.ini
 ADD start.sh /start.sh
 
 RUN ssh-keygen -b 1024 -t rsa -f /etc/ssh/ssh_host_key -q -N "" && \
