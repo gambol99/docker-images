@@ -17,10 +17,9 @@ build:
 	sudo /usr/bin/docker build -t ${AUTHOR}/${NAME} .
 
 test:	
-	/usr/bin/docker run \
-    --ti --rm \
+	sudo /usr/bin/docker run \
+    -ti --rm \
     --pid=host --net=host --ipc=host \
-    -p 2020:22 \
     -v /config:/config \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v /var/run/fleet.sock:/var/run/fleet.sock \
