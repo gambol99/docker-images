@@ -8,7 +8,7 @@
 FROM gliderlabs/alpine
 MAINTAINER Rohith <gambol99@gmail.com>
 
-RUN apk-install bash openssh supervisor python curl
+RUN apk-install bash openssh supervisor python curl sudo
 RUN mkdir -p /etc/supervisor.d/ 
 
 ADD config/sshd.ini /etc/supervisor.d/sshd.ini
