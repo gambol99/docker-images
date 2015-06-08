@@ -11,13 +11,13 @@ MAINTAINER Rohith <gambol99@gmail.com>
 RUN apk-install bash openssh supervisor python curl sudo
 RUN mkdir -p /etc/supervisor.d/ 
 
+ADD config/sshd_config /etc/ssh/sshd_config
 ADD config/sshd.ini /etc/supervisor.d/sshd.ini
 ADD start.sh /start.sh
 
 RUN ssh-keygen -b 1024 -t rsa -f /etc/ssh/ssh_host_key -q -N "" && \
   ssh-keygen -b 1024 -t rsa -f /etc/ssh/ssh_host_rsa_key -q -N "" && \
   ssh-keygen -b 1024 -t dsa -f /etc/ssh/ssh_host_dsa_key -q -N "" && \
-  sed -i 's/UsePAM\syes/UsePAM no/' /etc/ssh/sshd_config && \
   chmod +x /start.sh
 
 ENV VERSION 0.10.1  
