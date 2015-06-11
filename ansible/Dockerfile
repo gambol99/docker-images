@@ -26,10 +26,10 @@ ENV VERSION 0.10.1
 ENV ETCD_HOSTS http://127.0.0.1:4001
 ENV SSHD_PORT 2023
 
-RUN mkdir -p /opt/confd/bin /etc/confd/conf.d /etc/confd/templates && \
-  wget -q https://github.com/kelseyhightower/confd/releases/download/v0.9.0/confd-0.9.0-linux-amd64 -O /opt/confd/bin/confd && \
-  ln -s /opt/confd/bin/confd /bin/confd && \
-  chmod +x /opt/confd/bin/confd
+RUN mkdir -p /opt/bin /etc/confd/conf.d /etc/confd/templates && \
+  wget -q https://github.com/kelseyhightower/confd/releases/download/v0.9.0/confd-0.9.0-linux-amd64 -O /opt/bin/confd && \
+  ln -s /opt/bin/confd /bin/confd && \
+  chmod +x /opt/bin/confd
 
 RUN wget -q https://github.com/coreos/fleet/releases/download/v${VERSION}/fleet-v${VERSION}-linux-amd64.tar.gz -O fleet-v${VERSION}-linux-amd64.tar.gz && \
   tar zxvf fleet-v${VERSION}-linux-amd64.tar.gz && \
