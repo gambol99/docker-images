@@ -1,0 +1,16 @@
+#
+#   Author: Rohith
+#   Date: 2015-06-10 11:51:48 +0100 (Wed, 10 Jun 2015)
+#
+#  vim:ts=2:sw=2:et
+#
+
+[template]
+src   = "hosts.cfg.tmpl"
+dest  = "/etc/hosts"
+owner = "root"
+group = "root"
+mode  = "0444"
+keys  = [
+  "/hosts"
+]
