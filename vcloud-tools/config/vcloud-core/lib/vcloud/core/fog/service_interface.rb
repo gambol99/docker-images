@@ -68,12 +68,14 @@ module Vcloud
 
           def put_insert_cdrom(vm_id, media_id)
             Vcloud::Core.logger.debug("inserting #{media_id} cdrom into VM #{vm_id}")
-            @vcloud.post_insert_cd_rom(vm_id, media_id)
+            task = @vcloud.post_insert_cd_rom(vm_id, media_id)
+            @vcloud.process_task(task)
           end
 
           def put_detach_cdrom(vm_id, media_id) 
             Vcloud::Core.logger.debug("detaching #{media_id} cdrom into VM #{vm_id}")
-            @vcloud.post_insert_cd_rom(vm_id, media_id)
+            task = @vcloud.post_eject_cd_rom(vm_id, media_id)
+            @vcloud.process_task(task)
           end
 
           def put_network_connection_system_section_vapp(vm_id, section)
