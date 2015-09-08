@@ -14,8 +14,8 @@ ADD config/sshd.ini /etc/supervisord.d/sshd.ini
 ADD config/authorized_keys /root/.ssh/authorized_keys
 RUN chmod 400 /root/.ssh/authorized_keys
 RUN chown root:root /root/.ssh/authorized_keys
- 
-RUN /usr/bin/dnf install -y strace vim tcpdump ansible openssh-server supervisor \
+
+RUN /usr/bin/dnf install -y strace vim tcpdump ceph-common openssh-server supervisor \
   net-tools procps-ng openssh-server
 
 RUN ssh-keygen -b 1024 -t rsa -f /etc/ssh/ssh_host_key
